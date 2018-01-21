@@ -3,6 +3,10 @@
     <title></title>
 </head>
 <body>
-Hello <?= $name; ?>
+	<ul>
+	<?php foreach ($tasks as $task) : ?>
+		<li> <?= $task; ?> </li>
+	<?php endforeach; ?>
+	</ul>
 </body>
 </html>
