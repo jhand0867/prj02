@@ -13,14 +13,14 @@
 
 Route::get('/', function () {
 
-	$tasks = [
-		'Go to the store',
-		'But my groceries',
-		'Clean my place'
-	];
+	// reading data form mysql table
+
+	// getting all records from table
+	$tasks = DB::table('tasks')->get();
 
     return view('welcome', compact ('tasks'));
 });
+
 
 Route::get('about', function () {
     return view('about');
