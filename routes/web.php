@@ -21,19 +21,35 @@ Route::get('/', function () {
     return view('welcome', compact ('tasks'));
 });
 
-// adding a new route to use a wild-card {task}
+// adding a route to fectch all tasks
 
-Route::get('/tasks/{task}', function ($task) {
-
-	dd($task);  // dump value laravel's helper function 
+Route::get('/tasks', function () {
 
 	// reading data form mysql table
 
 	// getting all records from table
 	$tasks = DB::table('tasks')->get();
+
+	//dd($tasks);  // dump value laravel's helper function 
 	
-    return view('welcome', compact ('tasks'));
+    return view('tasks.index', compact ('tasks'));
 });
+
+
+// adding a route to fetch one task
+
+Route::get('/tasks/{task}', function ($task) {
+
+	// reading data form mysql table
+
+	// getting all records from table
+	$task = DB::table('tasks')->find($task);
+
+	//dd($task);  // dump value laravel's helper function 
+	
+    return view('tasks.show', compact ('task'));
+});
+
 
 Route::get('about', function () {
     return view('about');
