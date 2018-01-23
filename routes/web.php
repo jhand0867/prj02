@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Task;
 
 Route::get('/', function () {
 
@@ -28,7 +29,10 @@ Route::get('/tasks', function () {
 	// reading data form mysql table
 
 	// getting all records from table
-	$tasks = DB::table('tasks')->get();
+	//$tasks = DB::table('tasks')->get();
+
+    // usig model Task
+    $tasks = Task::all();
 
 	//dd($tasks);  // dump value laravel's helper function 
 	
@@ -38,12 +42,15 @@ Route::get('/tasks', function () {
 
 // adding a route to fetch one task
 
-Route::get('/tasks/{task}', function ($task) {
+Route::get('/tasks/{task}', function ($id) {
 
 	// reading data form mysql table
 
 	// getting all records from table
-	$task = DB::table('tasks')->find($task);
+	// $task = DB::table('tasks')->find($task);
+
+	// using model Task
+	$task = Task::find($id);
 
 	//dd($task);  // dump value laravel's helper function 
 	
