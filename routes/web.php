@@ -10,52 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Task;
 
-Route::get('/', function () {
-
-	// reading data form mysql table
-
-	// getting all records from table
-	$tasks = DB::table('tasks')->get();
-
-    return view('welcome', compact ('tasks'));
-});
+// default route
+Route::get('/', 'TasksController@index');
 
 // adding a route to fectch all tasks
-
-Route::get('/tasks', function () {
-
-	// reading data form mysql table
-
-	// getting all records from table
-	//$tasks = DB::table('tasks')->get();
-
-    // usig model Task
-    $tasks = Task::all();
-
-	//dd($tasks);  // dump value laravel's helper function 
-	
-    return view('tasks.index', compact ('tasks'));
-});
-
+Route::get('/tasks', 'TasksController@index'); 
 
 // adding a route to fetch one task
-
-Route::get('/tasks/{task}', function ($id) {
-
-	// reading data form mysql table
-
-	// getting all records from table
-	// $task = DB::table('tasks')->find($task);
-
-	// using model Task
-	$task = Task::find($id);
-
-	//dd($task);  // dump value laravel's helper function 
-	
-    return view('tasks.show', compact ('task'));
-});
+Route::get('/tasks/{task}', 'TasksController@show');
 
 
 Route::get('about', function () {
