@@ -11,8 +11,11 @@
 |
 */
 
-// default route
-Route::get('/', 'TasksController@index');
+// default Post route
+Route::get('/', 'PostsController@index');
+
+// show a Post route
+Route::get('/post/{post}', 'PostsController@show');
 
 // adding a route to fectch all tasks
 Route::get('/tasks', 'TasksController@index'); 
