@@ -14,8 +14,14 @@
 // default Post route
 Route::get('/', 'PostsController@index');
 
+// route to add a Post
+Route::get('/posts/create','PostsController@create');
+
 // show a Post route
-Route::get('/post/{post}', 'PostsController@show');
+Route::get('/posts/{post}','PostsController@show');
+
+// post request to add record to DB
+Route::post('/posts','PostsController@store');
 
 // adding a route to fectch all tasks
 Route::get('/tasks', 'TasksController@index'); 
@@ -27,3 +33,22 @@ Route::get('/tasks/{task}', 'TasksController@show');
 Route::get('about', function () {
     return view('about');
 });
+
+/*
+
+Post (resource)
+
+GET /posts         ---> show all posts
+
+GET /posts/create  ---> display the form
+
+POST /posts/       ---> new post stored in DB
+
+GET /posts/{id}/edit -> edit an existing post
+
+PATCH /posts/{id}  ---> update existing record in DB
+
+DELETE /posts/{id} ---> delete record from DB
+
+
+*/
