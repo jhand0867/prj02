@@ -15,7 +15,7 @@
 		  
 		    <label for="Title">Title</label>
 		   
-		    <input type="text" class="form-control" id="title" name="title">
+		    <input type="text" class="form-control" id="title" name="title" required>
 		  
 		  </div>
 		  
@@ -23,7 +23,7 @@
 		  
 		    <label for="Body">Body</label>
 		  
-		    <textarea id="body" name="body" class="form-control"></textarea>
+		    <textarea id="body" name="body" class="form-control" required></textarea>
 		  
 		  </div>
  		  
