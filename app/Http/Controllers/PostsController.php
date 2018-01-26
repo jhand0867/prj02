@@ -38,17 +38,18 @@ class PostsController extends Controller
         // create a new post
         // using the request data
 
-        $post = new Post;
+        Post::create ([
 
-        $post->title = request('title');
+            'title' => request('title'),
 
-        $post->body = request('body');
+            'body' => request('body')
+        ]);
         
 
 
         // save it into the DB
 
-        $post->save();
+        //$post->save();
 
         // redirect to the homepage
 
