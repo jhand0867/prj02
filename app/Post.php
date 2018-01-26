@@ -2,10 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Model;
 
 class Post extends Model
 {
-    // prevent mass assignment
-    protected $guarded = [];
+    //
 }
