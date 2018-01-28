@@ -17,11 +17,12 @@ Route::get('/', 'PostsController@index');
 // route to add a Post
 Route::get('/posts/create','PostsController@create');
 
+// post request to add record to DB
+Route::post('/posts','PostsController@store');
+
 // show a Post route
 Route::get('/posts/{post}','PostsController@show');
 
-// post request to add record to DB
-Route::post('/posts','PostsController@store');
 
 // adding a route to fectch all tasks
 Route::get('/tasks', 'TasksController@index'); 

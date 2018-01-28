@@ -2,7 +2,8 @@
 
 @section ('content')
 
-	<h1>Place to show post</h1>
+	<h1>{{$post->title}}t</h1>
+	<p> {{ $post->body }} </p>
 
 @endsection
 
