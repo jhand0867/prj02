@@ -11,8 +11,9 @@ class PostsController extends Controller
     public function index()
     {
     	// return the action
+        // using latest to most recent first
 
-        $posts = Post::all();
+        $posts = Post::latest()->get();
 
     	return view('posts.index' , compact('posts'));
     }
