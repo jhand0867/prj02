@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use \App\Post;
+use App\Post;
 
 class PostsController extends Controller
 {
@@ -34,6 +34,13 @@ class PostsController extends Controller
         //echo "in store";
         
         //dd(request()->all());
+
+        // validate before posting
+
+        $this->validate(request(), [
+            'title' => 'required',
+            'body'  => 'required'
+        ]);
 
         // create a new post
         // using the request data
