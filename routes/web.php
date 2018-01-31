@@ -23,12 +23,17 @@ Route::post('/posts','PostsController@store');
 // show a Post route
 Route::get('/posts/{post}','PostsController@show');
 
+// add comment to a post
+Route::post('/posts/{post}/comments','CommentsController@store');
+
 
 // adding a route to fectch all tasks
 Route::get('/tasks', 'TasksController@index'); 
 
 // adding a route to fetch one task
 Route::get('/tasks/{task}', 'TasksController@show');
+
+
 
 
 Route::get('about', function () {

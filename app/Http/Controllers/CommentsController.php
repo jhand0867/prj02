@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Post;
+
+use App\Comment;
 
 class CommentsController extends Controller
 {
@@ -32,9 +34,28 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Post $request)
+    public function store(Post $post)
     {
         // add comment to a Post
+
+        
+        // validate before posting
+
+        $this->validate(request(), [
+            
+            'body'  => 'required'
+        ]);
+
+        // create coment 
+
+        Comment::create([
+
+            'body' => request('body'),
+            'post_id' => $post->id
+
+        ]);
+
+        return back();
 
     }
 
