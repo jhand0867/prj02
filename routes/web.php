@@ -26,6 +26,14 @@ Route::get('/posts/{post}','PostsController@show');
 // add comment to a post
 Route::post('/posts/{post}/comments','CommentsController@store');
 
+// user login
+Route::get('/login','SessionController@create');
+
+// user registration
+Route::get('/register','RegistrationController@create');
+
+// add user to db
+Route::post('/register','RegistrationController@store');
 
 // adding a route to fectch all tasks
 Route::get('/tasks', 'TasksController@index'); 

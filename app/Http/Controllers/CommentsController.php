@@ -42,18 +42,11 @@ class CommentsController extends Controller
         // validate before posting
 
         $this->validate(request(), [
-            
+
             'body'  => 'required'
         ]);
 
-        // create coment 
-
-        Comment::create([
-
-            'body' => request('body'),
-            'post_id' => $post->id
-
-        ]);
+        $post->addComment(request('body'));
 
         return back();
 
