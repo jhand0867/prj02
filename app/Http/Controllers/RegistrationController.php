@@ -12,7 +12,7 @@ class RegistrationController extends Controller
     public function create()
     {
     	// add user to db
-    	return view('sessions.create');
+    	return view('registration.create');
     }
 
     // add user to database
@@ -23,18 +23,36 @@ class RegistrationController extends Controller
     	$this->validate(request(),[
 
     		'name'  => 'required:',
-    		'email' => 'required',
-    		'password' => 'required'
+    		'email' => 'required|email',
+    		'password' => 'required|confirmed'
 
     		]);
 
     	// create and save user
 
-    	$pwd = bcrypt(request('password'));
+    	$pwd = implode('',request(['password']));
+        $name = implode('',request(['name']));
+        $email = implode('',request(['email']));
 
-    	User::create(request(['name' , 
-    		                  'email',
-    		                  'password' ]));
+
+        //dd($name, $email, $pwd);
+        $pwd = bcrypt($pwd);
+
+        //dd($pwd);
+
+
+    	$user = User::create(['name' => $name,
+                              'email' => $email,
+                              'password' => $pwd]);
+
+    	// sign user in
+
+    	auth()->login($user);
+
+    	// redirect to home page
+
+    	// redirect()->home();
+    	return redirect('/');
 
 
     }

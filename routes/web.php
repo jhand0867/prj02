@@ -12,7 +12,7 @@
 */
 
 // default Post route
-Route::get('/', 'PostsController@index');
+Route::get('/', 'PostsController@index')->name('home');
 
 // route to add a Post
 Route::get('/posts/create','PostsController@create');
@@ -27,7 +27,13 @@ Route::get('/posts/{post}','PostsController@show');
 Route::post('/posts/{post}/comments','CommentsController@store');
 
 // user login
-Route::get('/login','SessionController@create');
+Route::get('/login','SessionsController@create');
+
+// session login
+Route::post('/login', 'SessionsController@store');
+
+// user logout
+Route::get('/logout', 'SessionsController@destroy');
 
 // user registration
 Route::get('/register','RegistrationController@create');

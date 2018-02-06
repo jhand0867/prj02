@@ -8,6 +8,15 @@ use App\Post;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        // everything is locked down;
+        //$this->middleware('auth');
+
+        // exceptions added
+        $this->middleware('auth')->except(['index','show']);
+    }
+
     public function index()
     {
     	// return the action
@@ -49,7 +58,29 @@ class PostsController extends Controller
         // using the request data
         // save it to the database
 
-        Post::create(request(['title' , 'body' ,'user_id' , 'password']));
+        /* 
+
+        Option 1: using the Post create method.
+
+        Post::create([
+            'title' => request('title'),
+
+            'body'  => request('body'),
+
+            'user_id' => auth()->id()
+        ]);
+        */
+
+        /* 
+        Option 2: following the semantics
+
+        User to publish a new Post
+        */
+
+        auth()->user()->publish(
+
+            new Post(request(['title', 'body']))
+        );
 
         // redirect to homepage
         return redirect ('/');
