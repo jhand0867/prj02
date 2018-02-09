@@ -27,6 +27,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function setPasswordAttribute($password)
+    { 
+        $this->attributes['password'] = bcrypt($password);
+    }
 
     public function posts()
     {
@@ -47,7 +51,7 @@ class User extends Authenticatable
         */
 
         $this->posts()->save($post);
-        
+
     }
 
 }

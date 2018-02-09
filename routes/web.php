@@ -27,7 +27,7 @@ Route::get('/posts/{post}','PostsController@show');
 Route::post('/posts/{post}/comments','CommentsController@store');
 
 // user login
-Route::get('/login','SessionsController@create');
+Route::get('/login','SessionsController@create')->name('login');
 
 // session login
 Route::post('/login', 'SessionsController@store');

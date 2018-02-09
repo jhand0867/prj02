@@ -23,27 +23,34 @@ class RegistrationController extends Controller
     	$this->validate(request(),[
 
     		'name'  => 'required:',
-    		'email' => 'required|email',
+    		'email' => 'required|unique:users|email',
     		'password' => 'required|confirmed'
 
     		]);
 
     	// create and save user
 
-    	$pwd = implode('',request(['password']));
-        $name = implode('',request(['name']));
-        $email = implode('',request(['email']));
+    	//$pwd = implode('',request(['password']));
+        //$name = implode('',request(['name']));
+        //$email = implode('',request(['email']));
+
+        $pwd = request('password');
+        $name = request('name');
+        $email = request('email');
 
 
         //dd($name, $email, $pwd);
-        $pwd = bcrypt($pwd);
+        //$pwd = bcrypt($pwd);
 
         //dd($pwd);
 
 
-    	$user = User::create(['name' => $name,
-                              'email' => $email,
-                              'password' => $pwd]);
+    	//$user = User::create(['name' => $name,
+        //                      'email' => $email,
+        //                      'password' => $pwd]);
+
+        $user = User::create(request(['name','email','password']));
+
 
     	// sign user in
 

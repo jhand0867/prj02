@@ -1,6 +1,3 @@
-// sessions 
-// create.blade.php 
-
 @extends('layouts.master')
 
 @section('content')

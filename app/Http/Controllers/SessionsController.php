@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SessionsController extends Controller
 {
@@ -13,8 +14,8 @@ class SessionsController extends Controller
         // only guests will be able to 
         // make it through this filter
 
-        $this->middleware('guest');
-        
+        $this->middleware('guest')->except('logout');
+
     }
 
     // create method
@@ -37,10 +38,12 @@ class SessionsController extends Controller
 
         // attempt
 
-        if (! auth()->attempt(request(['email', 'password'])))
+        if (! Auth::attempt(request(['email', 'password'])))
         {
 
-           return back();
+            return back()->withErrors([
+                'message' => 'Please check your e-mail or password'
+            ]);
 
         }            
 
@@ -54,6 +57,6 @@ class SessionsController extends Controller
     	auth()->logout();
 
     	// redirect to login page;
-    	return redirect('/');
+    	return redirect()->home();
     }
 }

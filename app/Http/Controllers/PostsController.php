@@ -83,6 +83,6 @@ class PostsController extends Controller
         );
 
         // redirect to homepage
-        return redirect ('/');
+        return redirect()->home();
     }
 }
