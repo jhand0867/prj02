@@ -33,7 +33,7 @@ Route::get('/login','SessionsController@create')->name('login');
 Route::post('/login', 'SessionsController@store');
 
 // user logout
-Route::get('/logout', 'SessionsController@destroy');
+Route::get('/logout', 'SessionsController@destroy')->name('logout');
 
 // user registration
 Route::get('/register','RegistrationController@create');

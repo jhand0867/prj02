@@ -6,8 +6,19 @@ use Illuminate\Http\Request;
 
 use App\User;
 
+use Illuminate\Support\Facades\Hash;
+
 class RegistrationController extends Controller
 {
+    /*public function __construct()
+    {
+        // everything is locked down;
+        //$this->middleware('auth');
+
+        // exceptions added
+        $this->middleware('auth')->except(['index','show']);
+    }*/
+
     // add crete method
     public function create()
     {
@@ -37,6 +48,7 @@ class RegistrationController extends Controller
         $pwd = request('password');
         $name = request('name');
         $email = request('email');
+        //Hash::make(request('password')
 
 
         //dd($name, $email, $pwd);
@@ -59,7 +71,7 @@ class RegistrationController extends Controller
     	// redirect to home page
 
     	// redirect()->home();
-    	return redirect('/');
+    	return redirect('/'); // ->home();
 
 
     }

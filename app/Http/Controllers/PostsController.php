@@ -8,14 +8,14 @@ use App\Post;
 
 class PostsController extends Controller
 {
-    public function __construct()
+    /*public function __construct()
     {
         // everything is locked down;
         //$this->middleware('auth');
 
         // exceptions added
         $this->middleware('auth')->except(['index','show']);
-    }
+    }*/
 
     public function index()
     {

@@ -14,7 +14,7 @@ class SessionsController extends Controller
         // only guests will be able to 
         // make it through this filter
 
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest',['except' => 'destroy']);
 
     }
 
@@ -37,10 +37,16 @@ class SessionsController extends Controller
         //   ---> send to home
 
         // attempt
+        //dd(request(['email','password']));
 
-        if (! Auth::attempt(request(['email', 'password'])))
+        //$email = request('email');
+        //$pwd = bcrypt(request('password'));
+        
+        //dd( auth()->attempt(request(['email' , 'password'])));
+
+        if (! auth()->attempt(request(['email' , 'password'])))
         {
-
+            
             return back()->withErrors([
                 'message' => 'Please check your e-mail or password'
             ]);
@@ -48,13 +54,13 @@ class SessionsController extends Controller
         }            
 
         // redirect to home page
-        return redirect()->home();
+        return redirect('/'); //->home();
     }
 
     public function destroy()
     {
     	// logout user
-    	auth()->logout();
+    	\Auth::logout();
 
     	// redirect to login page;
     	return redirect()->home();

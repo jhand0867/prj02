@@ -4,7 +4,8 @@
           <a class="blog-nav-item active" href="{{ url('/')}}">Home</a>
           <a class="blog-nav-item" href="{{ url('posts/create')}}">New Post</a>
           <a class="blog-nav-item" href="#">Press</a>
-          <a class="blog-nav-item" href="#">New hires</a>
+          <a class="blog-nav-item" href="{{ url('login') }}">Login</a>
+          <a class="blog-nav-item" href="{{ url('logout') }}">Logout</a>
 
           <!-- Check if user had loged in -->
           @if(Auth::check())

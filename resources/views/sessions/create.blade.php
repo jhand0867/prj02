@@ -16,7 +16,7 @@
 		  
 		    <label for="Title">User / e-Mail</label>
 		   
-		    <input type="text" class="form-control" id="name" name="name" required>
+		    <input type="text" class="form-control" id="email" name="email" required>
 		  
 		  </div>
 
