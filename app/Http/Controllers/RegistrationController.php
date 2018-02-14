@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Hash;
 
 class RegistrationController extends Controller
 {
-    /*public function __construct()
+    public function __construct()
     {
         // everything is locked down;
         //$this->middleware('auth');
 
         // exceptions added
         $this->middleware('auth')->except(['index','show']);
-    }*/
+    }
 
     // add crete method
     public function create()

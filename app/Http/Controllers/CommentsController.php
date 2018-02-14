@@ -8,6 +8,15 @@ use App\Comment;
 
 class CommentsController extends Controller
 {
+    public function __construct()
+    {
+        // everything is locked down;
+        //$this->middleware('auth');
+
+        // exceptions added
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +55,12 @@ class CommentsController extends Controller
             'body'  => 'required'
         ]);
 
-        $post->addComment(request('body'));
+        //$post->addComment(request('body'));
+
+        (new Comment)->post()->associate($post)
+            ->user()->associate(auth()->user())
+            ->fill(request(['body']))
+            ->save();
 
         return back();
 
