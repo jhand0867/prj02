@@ -14,8 +14,10 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/');
+        // adding a test to find a string
 
-        $response->assertStatus(200);
+        $this->get('/')->assertSee('The Bootstrap Blog');
     }
+
+        
 }
