@@ -45,7 +45,7 @@ class PostsController extends Controller
 
         $archives = Post::archives();
 
-        return view('posts.index', compact('posts','archives'));
+        return view('posts.index', compact('posts'));
 
     }
 
