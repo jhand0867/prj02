@@ -25,9 +25,16 @@ $factory->define(App\User::class, function (Faker $faker) {
 $factory->define(App\Post::class, function (Faker $faker) {
     return [
         
-        'user_id' => 1,
+        'user_id' => function(){
+
+        	// this way 
+        	// a new User is added to the table
+        	// and will be used to create a new Post 
+        	
+        	return factory(App\User::class)->create()->id;
+        },
         'title' => $faker->sentence,
-        'body' => $faker->parragraph
+        'body' => $faker->paragraph
 
     ];
 });
