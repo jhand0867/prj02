@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Post;
 
+use App\Repositories\Posts;
+
 use Carbon\Carbon;
 
 
@@ -20,9 +22,17 @@ class PostsController extends Controller
         $this->middleware('auth')->except(['index','show']);
     }
 
-    public function index()
+    /*
+        using automatic dependency injection 
+        to pull the repository class Posts
+    */
+
+    public function index(Posts $posts)
     {
-        $posts = Post::latest();
+        
+        //dd($posts);
+
+        $posts->all();
 
         // using the query string
 
