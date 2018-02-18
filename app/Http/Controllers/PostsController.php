@@ -30,7 +30,7 @@ class PostsController extends Controller
     public function index(Posts $posts)
     {
         
-        //dd($posts);
+        dd($posts);
 
         $posts->all();
 
