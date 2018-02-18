@@ -44,7 +44,25 @@ class ExampleTest extends TestCase
         // Then response should be in teh proper format.
 
         // set the assertion
-        $this->assertCount(2, $posts);
+        // $this->assertCount(2, $posts);
 
+
+    	// set test to compare data
+
+    	$this->assertEquals([
+
+    		[
+    			"year" => $first->created_at->format('Y'), //2017
+    			"month" => $first->created_at->format('F'), // name of the month "January"
+    			"published" => 1
+    		],
+
+    		[
+    			"year" => $second->created_at->format('Y'), //2017
+    			"month" => $second->created_at->format('F'), // name of the month "January"
+    			"published" => 1
+    		],
+
+    	], $posts );
     }
 }
