@@ -1,5 +1,31 @@
 <?php
 
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| For the service container
+|
+*/
+
+// registering the class into the service container
+
+App::bind('App\Billing\Stripe', function(){
+
+	return new \App\Billing\Stripe(config('services.stripe.secret'));
+
+});
+
+// calling the service
+
+$stripe = App::make('App\Billing\Stripe');
+
+//dd(resolve('App\Billing\Stripe'));
+dd($stripe);
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
