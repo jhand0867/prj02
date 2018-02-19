@@ -10,13 +10,7 @@
 |
 */
 
-// registering the class into the service container
 
-App::bind('App\Billing\Stripe', function(){
-
-	return new \App\Billing\Stripe(config('services.stripe.secret'));
-
-});
 
 // calling the service
 
