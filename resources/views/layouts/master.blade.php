@@ -19,9 +19,10 @@
     <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/blog.css" rel="stylesheet">
-
-    <script src="resources/assets/js/ie-emulation-modes-warning.js"></script>
+    <link href="{{ URL::asset('css/blog.css') }}" rel="stylesheet" type="text/css" >
+    
+    <script type="text/javascript" 
+            src="{{ URL::asset('resources/assets/js/ie-emulation-modes-warning.js') }}" ></script>
 
   </head>
 
@@ -32,44 +33,22 @@
     <div class="container">
 
       <div class="row">
+        
+        @yield ('content')
+        
 
-        <div class="col-sm-8 blog-main">
 
-    <div class="container">
-      @yield ('content')
+
+        @include('layouts.sidebar')
+
+      </div>
+      
     </div>
-    <!-- @include ('layouts.footer') -->
+ 
 
-
-          <nav>
-            <ul class="pager">
-              <li><a href="#">Previous</a></li>
-              <li><a href="#">Next</a></li>
-            </ul>
-          </nav>
-
-        </div><!-- /.blog-main -->
-
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-          <div class="sidebar-module sidebar-module-inset">
-            <h4>About</h4>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-          </div>
-
-          @include('layouts.sidebar')
-
-        </div><!-- /.blog-sidebar -->
-
-      </div><!-- /.row -->
-
-    </div><!-- /.container -->
-
-    <footer class="blog-footer">
-        <a href="#">Back to top</a>
-      </p>
-    </footer>
-
+    @include('layouts.footer')
 
 
   </body>
+
 </html>

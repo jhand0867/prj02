@@ -1,36 +1,17 @@
-@extends ('layouts.master')
+@extends('layouts.master')
 
-@section ('content')
-
-    <div class="container">
-
-      <div class="row">
+@section('content')
+  
 
         <div class="col-sm-8 blog-main">
 
-			<h1>{{$post->title}}t</h1>
+			<h1>{{ $post->title }}</h1>
 
 			<p> {{ $post->body }} </p>
 
 			<hr>
 
-			<div class="comments">
-
-				<article>
-
-					@foreach($post->comments as $comment)
-
-						<div class="article">
-				
-							{{ $comment->body }}
-
-						</div>
-
-					@endforeach
-				
-				</article>	
-
-			</div>
+			@include ('posts.comments')
 
 			<!-- add a comment -->
 
@@ -68,8 +49,5 @@
 		
 		</div>
 	  
-	  </div>
-	
-	</div>  
 @endsection
 

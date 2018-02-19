@@ -14,10 +14,10 @@
 
 // calling the service
 
-$stripe = App::make('App\Billing\Stripe');
+//$stripe = App::make('App\Billing\Stripe');
 
 //dd(resolve('App\Billing\Stripe'));
-dd($stripe);
+//dd($stripe);
 
 
 /*

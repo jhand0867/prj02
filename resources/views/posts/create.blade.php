@@ -2,7 +2,7 @@
 
 @section('content')
 
-<!--	<div class="container"> -->
+	<div class="col-sm-8 blog-main">
 
 		<h1>Publish a Post</h1>
 		<hr>
@@ -24,7 +24,7 @@
 		    <label for="Body">Body</label>
 		  
 		    <textarea id="body" name="body" class="form-control"></textarea>
-		  
+		    
 		  </div>
  		  
  		  <div class="form-group">
@@ -36,6 +36,7 @@
 		@include('layouts.errors')			
 
 		</form>
+	</div>
 
 @endsection
 

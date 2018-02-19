@@ -1,6 +1,6 @@
-@extends('layouts.master')
+@extends ('layouts.master')
 
-@section('content')
+@section ('content')
 
 	<div class="col-sm-8">
 
@@ -12,28 +12,28 @@
 
 			{{ csrf_field() }}
 		  
-		  <div class="form-group">
+		  <div class="form-group" >
 		  
 		    <label for="Title">Name</label>
 		   
-		    <input type="text" class="form-control" id="name" name="name" required>
+		    <input type="text" class="form-control" id="name" name="name" required \>
 		  
 		  </div>
 		  
 		  
-		  <div class="form-group">
+		  <div class="form-group" >
 		  
 		    <label for="Title">e-Mail</label>
 		   
-		    <input type="email" class="form-control" id="email" name="email" required>
+		    <input type="email" class="form-control" id="email" name="email" required\>
 		  
 		  </div>
 		  
-		  <div class="form-group">
+		  <div class="form-group" >
 		  
 		    <label for="Title">Password</label>
 		   
-		    <input type="password" class="form-control" id="password" name="password" required>
+		    <input type="password" class="form-control" id="password" name="password" required\>
 		  
 		  </div>
 		  
@@ -42,7 +42,7 @@
 		    <label for="Title">Password Confirmation</label>
 		   
 		    <input type="password" class="form-control" id="password_confirmation" 
-		           name="password_confirmation" required>
+		           name="password_confirmation" required\>
 		  
 		  </div>
 		  		  
