@@ -19,7 +19,7 @@ class PostsController extends Controller
         //$this->middleware('auth');
 
         // exceptions added
-        $this->middleware('auth')->except(['index','show']);
+        $this->middleware('auth')->except(['index']);
     }
 
     /*
@@ -27,12 +27,12 @@ class PostsController extends Controller
         to pull the repository class Posts
     */
 
-    public function index(Posts $posts)
+    public function index()
     {
         
-        dd($posts);
+        //dd($posts);
 
-        $posts->all();
+        $posts = Post::latest();
 
         // using the query string
 
@@ -40,22 +40,28 @@ class PostsController extends Controller
         {
             
             $posts = Post::whereMonth('created_at', Carbon::parse($month)->month);
+            \Log::info('Parsing month '. $month);
 
         }
 
         if($year = request('year'))
         {
 
-            $post = Post::whereYear('created_at', $year);
-
+            $posts = Post::whereYear('created_at', $year);
+            \Log::info('Parsing year '. $year);
         }
 
+        
         $posts = $posts->get();
+
+        //dd($posts);
+
+
 
 
         $archives = Post::archives();
 
-        return view('posts.index', compact('posts'));
+        return view('posts.index', compact('posts','archives'));
 
     }
 
